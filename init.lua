@@ -106,60 +106,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
--- [[ Setting options ]]
--- See `:help vim.o`
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.cursorline = true
-
-vim.opt.smartindent = true
--- Set highlight on search
-vim.o.hlsearch = false
-
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
--- Make line numbers default
-vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
-
--- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
-
--- Set colorscheme
-vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-  callback = function()
-    vim.lsp.buf.format()
-  end
-})
-
 -- moving between splits
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -284,11 +230,6 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -353,6 +294,8 @@ require('neodev').setup()
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+
 
 -- Setup mason so it can manage external tooling
 require('mason').setup()
@@ -419,52 +362,6 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
-local change_size = function(d)
-  local v = vim.api
-
-  -- Lua version of a ternery operator
-  d = d and d or "left"
-
-  local lr = d == "left" or d == "right"
-  -- 5 for left right, 3 for up down
-  local amt = lr and 5 or 3
-
-  local pos = v.nvim_win_get_position(0)
-  local w = v.nvim_win_get_width(0)
-  local h = v.nvim_win_get_height(0)
-
-  if lr then
-    amt = pos[2] == 0 and -amt or amt
-  else
-    amt = pos[1] == 0 and -amt or amt
-  end
-
-  w = (d == "left") and (w + amt) or (w - amt)
-  h = (d == "up") and (h + amt) or (h - amt)
-
-  if lr then
-    v.nvim_win_set_width(0, w)
-  else
-    v.nvim_win_set_height(0, h)
-  end
-
-end
-
--- If want to resize vim tabs
--- vim.keymap.set({"n"}, "<S-n>", function()
---   change_size("left")
--- end)
--- vim.keymap.set({"n"}, "<S-.>", function()
---   change_size("right")
--- end)
---
--- vim.keymap.set({"n"}, "<S-,>", function()
---   change_size("up")
--- end)
--- vim.keymap.set({"n"}, "<S-j>", function()
---   change_size("down")
--- end)
 
 -- The line beneath this is called `modeline`.
 -- vim: ts=2 sts=2 sw=2 et
