@@ -42,9 +42,6 @@ vim.cmd [[colorscheme gruvbox]]
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
--- [[ Basic Keymaps ]]
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 vim.api.nvim_create_autocmd("BufWritePost", {
     callback = function()
