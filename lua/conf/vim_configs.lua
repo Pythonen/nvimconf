@@ -18,6 +18,9 @@ vim.opt.undofile = true
 -- Make line numbers default
 vim.wo.number = true
 
+-- Sync vim keyboard with os keyboard
+vim.o.clipboard = 'unnamedplus'
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -37,6 +40,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+vim.o.background = "dark"
 vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
