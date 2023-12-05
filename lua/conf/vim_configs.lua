@@ -47,8 +47,8 @@ vim.cmd [[colorscheme gruvbox]]
 vim.o.completeopt = 'menuone,noselect'
 
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-    callback = function()
-        vim.lsp.buf.format()
-    end
-})
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     callback = function()
+--         vim.lsp.buf.format()
+--     end
+-- })
