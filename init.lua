@@ -57,9 +57,9 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   use 'ellisonleao/gruvbox.nvim'
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'nvim-lualine/lualine.nvim'               -- Fancier statusline
+  use 'numToStr/Comment.nvim'                   -- "gc" to comment visual regions/lines
+  use 'tpope/vim-sleuth'                        -- Detect tabstop and shiftwidth automatically
   use 'nvim-treesitter/nvim-treesitter-context' -- Show current function context
 
 
@@ -69,7 +69,7 @@ require('packer').startup(function(use)
   use {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { {"nvim-lua/plenary.nvim"} }
+    requires = { { "nvim-lua/plenary.nvim" } }
   }
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -174,7 +174,7 @@ pcall(require('telescope').load_extension, 'fzf')
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'vim', "prisma", "svelte"},
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'vim', "prisma", "svelte" },
   ignore_install = { "help" },
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
