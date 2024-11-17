@@ -77,6 +77,13 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+  }
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -233,6 +240,12 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+require("nvim-tree").setup {
+  -- TODO: make so that the file tree doesn't open automatically when the buffer is opened
+  view = {
+    side = "right"
+  }
+}
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.

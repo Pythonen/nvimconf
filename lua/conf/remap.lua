@@ -25,6 +25,7 @@ vim.keymap.set('n', "<S-q>", function() harpoon:list():select(1) end)
 vim.keymap.set('n', "<S-w>", function() harpoon:list():select(2) end)
 vim.keymap.set('n', "<S-e>", function() harpoon:list():select(3) end)
 vim.keymap.set('n', "<S-r>", function() harpoon:list():select(4) end)
+vim.keymap.set('n', '<leader>b', ":NvimTreeToggle<CR>")
 
 
 -- See `:help telescope.builtin`
