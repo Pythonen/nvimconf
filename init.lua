@@ -241,10 +241,14 @@ require('nvim-treesitter.configs').setup {
 }
 
 require("nvim-tree").setup {
-  -- TODO: make so that the file tree doesn't open automatically when the buffer is opened
   view = {
     side = "right"
-  }
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
+  },
 }
 
 -- LSP settings.
