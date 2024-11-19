@@ -26,7 +26,6 @@ local __change_size = function(d)
     else
         v.nvim_win_set_height(0, h)
     end
-
 end
 
 -- If you want to resize vim splits
