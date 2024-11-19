@@ -20,14 +20,13 @@ local harpoon = require('harpoon')
 harpoon:setup()
 
 vim.keymap.set('n', "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set('n', "<C-w>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set('n', "<C-q>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 vim.keymap.set('n', "<S-q>", function() harpoon:list():select(1) end)
 vim.keymap.set('n', "<S-w>", function() harpoon:list():select(2) end)
 vim.keymap.set('n', "<S-e>", function() harpoon:list():select(3) end)
 vim.keymap.set('n', "<S-r>", function() harpoon:list():select(4) end)
+
 vim.keymap.set('n', '<leader>b', ":NvimTreeToggle<CR>")
-
-
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
