@@ -61,6 +61,10 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim'                   -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth'                        -- Detect tabstop and shiftwidth automatically
   use 'nvim-treesitter/nvim-treesitter-context' -- Show current function context
+  use {
+    'folke/trouble.nvim',
+    config = function() require('trouble.nvim').setup {} end
+  }
 
 
 
