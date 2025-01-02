@@ -198,6 +198,10 @@ else
           ['<C-d>'] = false,
         },
       },
+      layout_config = {
+        width = { padding = 5 },
+        height = { padding = 1 }
+      }
     }
   }
 
