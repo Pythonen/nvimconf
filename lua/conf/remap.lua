@@ -49,6 +49,9 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
 
+vim.keymap.set("n", "<S-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<S-j>", "<cmd>cprev<CR>zz")
+
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>tt", function()
     require("trouble").toggle({ mode = 'diagnostics' })
