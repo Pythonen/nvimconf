@@ -107,6 +107,8 @@ else
       },
     }
 
+    use('mrjones2014/smart-splits.nvim')
+
     use 'f-person/git-blame.nvim'
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -383,6 +385,7 @@ else
   }
 
   -- Turn on lsp status information
+
   require('fidget').setup {}
 
   -- nvim-cmp setup
