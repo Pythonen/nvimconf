@@ -71,6 +71,10 @@ else
     }
 
     -- Git related plugins
+    use {
+      'folke/trouble.nvim',
+      config = function() require('folke/trouble.nvim').setup {} end
+    }
     use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'lewis6991/gitsigns.nvim'
@@ -80,10 +84,6 @@ else
     use 'numToStr/Comment.nvim'                   -- "gc" to comment visual regions/lines
     use 'tpope/vim-sleuth'                        -- Detect tabstop and shiftwidth automatically
     use 'nvim-treesitter/nvim-treesitter-context' -- Show current function context
-    use {
-      'folke/trouble.nvim',
-      config = function() require('trouble.nvim').setup {} end
-    }
 
 
 
